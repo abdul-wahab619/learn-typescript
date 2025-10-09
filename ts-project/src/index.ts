@@ -93,3 +93,25 @@ class Dog extends Animal {
 
 const dog = new Dog();
 dog.makeSound(); // Woof 🐶
+
+interface TakePhoto {
+  cameraMode: string;
+  filter: string;
+  burst: number;
+  takeSnap(): void;
+}
+
+class Instagram implements TakePhoto {
+  constructor(
+    public cameraMode: string,
+    public filter: string,
+    public burst: number
+  ) {}
+
+  takeSnap(): void {
+    console.log("Taking a photo...");
+  }
+}
+const insta = new Instagram("Portrait", "Sepia", 3);
+insta.takeSnap();
+console.log(insta);
