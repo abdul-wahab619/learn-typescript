@@ -31,8 +31,50 @@ function getSearchProducts<T>(products: T[]): T {
   return products[myIndex];
 }
 
-const getMoreSearchProducts = <T,>(products: T[]): T => {
+const getMoreSearchProducts = <T>(products: T[]): T => {
   // do some database operations
   const myIndex = 4;
   return products[myIndex];
 };
+
+function anotherFunction<T, U extends { name: string }>(
+  valOne: T,
+  valTwo: U
+): object {
+  return {
+    valOne,
+    valTwo,
+  };
+}
+
+anotherFunction(3, { name: "ali" });
+anotherFunction("3", { name: "ali" });
+// anotherFunction("3", { age: 30 }); // Error because U must have a name property
+
+interface Quiz {
+  name: string;
+  type: string;
+}
+
+interface Course {
+  name: string;
+  author: string;
+  subject: string;
+}
+
+class Sellable<T> {
+  public cart: T[] = [];
+  addToCart(product: T) {
+    this.cart.push(product);
+  }
+
+  getCart(): T[] {
+    return this.cart;
+  }
+}
+
+const sellable = new Sellable<Quiz | Course>();
+sellable.addToCart({ name: "quiz1", type: "quiz" });
+sellable.addToCart({ name: "course1", author: "ali", subject: "math" });
+
+console.log(sellable.getCart());
