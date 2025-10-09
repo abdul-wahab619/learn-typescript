@@ -9,10 +9,10 @@ function identityTwo(val: any): any {
 }
 
 function identityThree<Type>(val: Type): Type {
-    return val;
+  return val;
 }
 function identityFour<T>(val: T): T {
-    return val;
+  return val;
 }
 
 // difference between generics and any
@@ -24,3 +24,15 @@ function identityFour<T>(val: T): T {
 identityFour<string>("hello");
 identityFour<number>(3);
 identityFour<boolean>(true);
+
+function getSearchProducts<T>(products: T[]): T {
+  // do some database operations
+  const myIndex = 3;
+  return products[myIndex];
+}
+
+const getMoreSearchProducts = <T,>(products: T[]): T => {
+  // do some database operations
+  const myIndex = 4;
+  return products[myIndex];
+};
