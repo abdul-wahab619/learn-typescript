@@ -78,3 +78,18 @@ class Account {
 const acc = new Account();
 acc.balance = 500; // setter called
 console.log(acc.balance); // getter called
+
+class Animal {
+  makeSound() {
+    console.log("Some sound...");
+  }
+}
+
+class Dog extends Animal {
+  makeSound() {
+    console.log("Woof 🐶");
+  }
+}
+
+const dog = new Dog();
+dog.makeSound(); // Woof 🐶
