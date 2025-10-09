@@ -61,3 +61,20 @@ const tesla = new ElectricCar("Tesla", "ENG123", 2023, 100);
 tesla.getInfo();
 tesla.getBatteryInfo();
 // tesla.engineNumber ❌  private -> can't access
+
+class Account {
+  private _balance: number = 0;
+
+  get balance(): number {
+    return this._balance;
+  }
+
+  set balance(amount: number) {
+    if (amount < 0) throw new Error("Balance cannot be negative");
+    this._balance = amount;
+  }
+}
+
+const acc = new Account();
+acc.balance = 500; // setter called
+console.log(acc.balance); // getter called
